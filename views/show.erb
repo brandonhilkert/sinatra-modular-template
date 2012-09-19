@@ -1,0 +1,40 @@
+<script type="text/javascript">
+  $(function() {
+    $(".slideshow").cycle({
+      fx: "fade"
+    });
+  });
+
+  mixpanel.track("View Slideshow", { nickname: "<%= @user.nickname %>" });
+
+  <% if session[:created_slideshow] %>
+    mixpanel.track("Create Slideshow", { nickname: "<%= @user.nickname %>" });
+    <% session[:created_slideshow] = nil %>
+  <% end %>
+</script>
+
+<div class="headline">@<%= @user.nickname %></div>
+<div class="share">
+  Share this slideshow on:
+  <a target="_blank" href="http://www.facebook.com/sharer.php?u=<%= @user.slideshow_url %>" title="Click to share this slideshow on Facebook">
+    <img src="/images/facebook.png" width="32" height="32" alt="Facebook" />
+  </a>
+  <a target="_blank" href="http://twitter.com/share?text=Check out my latest Instashow.&url=<%= @user.slideshow_url %>" title="Click to share this slideshow on Twitter">
+    <img src="/images/twitter.png" width="32" height="32" alt="Twitter" />
+  </a>
+  <br />
+  <a href="<%= @user.slideshow_url %>" /><%= @user.slideshow_url %></a>
+</div>
+
+<div class="slideshow">
+  <% @photos.each do |photo| %>
+    <div>
+      <img src="<%= photo.images.standard_resolution.url %>" width="<%= photo.images.standard_resolution.width %>" height="<%= photo.images.standard_resolution.height %>" />
+      <br />
+      <% if photo.caption %>
+        <div class="caption"><%= photo.caption.text %></div>
+      <% end %>
+      <div class="date"><%= Time.at(photo.created_time.to_i).strftime("%b %-d, %Y") %></div>
+    </div>
+  <% end %>
+</div>
