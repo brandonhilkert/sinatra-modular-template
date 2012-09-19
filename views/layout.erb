@@ -2,9 +2,16 @@
 <html>
   <head>
     <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Description" />
-    <link href="/stylesheets/style.css" rel='stylesheet' type="text/css" />
-    <script src="/javascripts/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="<%= asset_path('application.css') %>" rel="stylesheet" type="text/css" />
+    <script src="<%= asset_path('application.js') %>"></script>
   </head>
   <body>
     <div class="container">
@@ -12,5 +19,8 @@
         <%= yield %>
       </div>
     </div>
+    <footer>
+      <a href="http://twitter.com/brandonhilkert" target="_blank">@brandonhilkert</a>
+    </footer>
   </body>
 </html>

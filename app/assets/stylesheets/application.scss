@@ -1,14 +1,21 @@
+@import 'reset';
+
+/* variables */
+$base_size: 20px;
+$label_size: 20px;
+
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #1e1e1e;
   font-family: "Myriad Pro Condensed", "Gill Sans", "Lucida Grande", Helvetica, sans-serif;
-  font-weight: 100;
   color: #fffcf1;
 }
-.clear { clear: both; }
-.container {
-  width: 615px;
-  margin: 0 auto;
-  text-align: center;
-}
 
-.content { min-height: 650px; }
+.clear { clear: both; }
+.left { float: left; }
+.right { float: right; }
+
+
