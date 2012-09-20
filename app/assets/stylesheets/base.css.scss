@@ -1,13 +1,3 @@
-@import 'reset';
-
-/* variables */
-$base_size: 20px;
-$label_size: 20px;
-
-html, body {
-  height: 100%;
-}
-
 body {
   background-color: #1e1e1e;
   font-family: "Myriad Pro Condensed", "Gill Sans", "Lucida Grande", Helvetica, sans-serif;
@@ -17,5 +7,3 @@ body {
 .clear { clear: both; }
 .left { float: left; }
 .right { float: right; }
-
-
