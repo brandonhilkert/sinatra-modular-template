@@ -4,9 +4,9 @@ module Project
     enable :sessions
 
     set :sprockets, Sprockets::Environment.new(root) { |env|
-      env.append_path(root.join('app', 'assets', 'stylesheets'))
-      env.append_path(root.join('app', 'assets', 'javascripts'))
-      env.append_path(root.join('app', 'assets', 'images'))
+      env.append_path(root.join('assets', 'stylesheets'))
+      env.append_path(root.join('assets', 'javascripts'))
+      env.append_path(root.join('assets', 'images'))
     }
 
     configure :development do
@@ -15,11 +15,7 @@ module Project
 
     helpers do
       def asset_path(source)
-        if Project.env == "production"
-          "/assets/" + settings.sprockets.find_asset(source).digest_path
-        else
-          "/assets/" + settings.sprockets.find_asset(source).logical_path
-        end
+        "/assets/" + settings.sprockets.find_asset(source).digest_path
       end
     end
 

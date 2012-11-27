@@ -1,12 +1,9 @@
-$: << File.expand_path('../lib', __FILE__)
-
-require 'rubygems'
-require 'project' # include project lib
+require './lib/project'
 
 map '/assets' do
   run Project::App.sprockets
 end
 
 map '/' do
-  run Project::App # run project App
+  run Project::App
 end

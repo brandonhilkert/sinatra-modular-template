@@ -1,3 +1,5 @@
+$: << File.dirname(__FILE__) # load the /lib directory
+
 require 'bundler'
 Bundler.require
 
@@ -21,6 +23,5 @@ module Project
   end
 end
 
-require File.expand_path('../project/app', __FILE__)
-
+require 'project/app'
 # Require other files in the project (ie. Models...)
