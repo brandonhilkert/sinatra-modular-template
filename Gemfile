@@ -10,6 +10,6 @@ gem 'thin'
 gem 'rake'
 
 group :development, :test do
-  gem 'debugger'
+  gem 'pry'
   gem 'rspec'
 end
